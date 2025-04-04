@@ -15,6 +15,7 @@ public class MovimentoResource {
     private MovimentoService movimentoService;
 
 
+
     @GetMapping("/{id}")
     public ResponseEntity<MovimentoDTO> buscarUsuariosporid(@PathVariable Long id) {
         Movimento movimento = movimentoService.buscarMovimentoPorId(id);
@@ -32,8 +33,8 @@ public class MovimentoResource {
         movimentoService.deletarMovimento(id);
         return ResponseEntity.noContent().build();
     }
-    @PutMapping("/{id}")
-    public ResponseEntity<MovimentoDTO> atualizar(@PathVariable Long id, @RequestBody MovimentoDTO movimentoDTO) {
-        return ResponseEntity.ok(movimentoService.atualizarMovimento(id, movimentoDTO));
+    @PutMapping()
+    public ResponseEntity<MovimentoDTO> atualizar(@RequestBody MovimentoDTO movimentoDTO) {
+        return ResponseEntity.ok(movimentoService.atualizarMovimento(movimentoDTO));
     }
 }

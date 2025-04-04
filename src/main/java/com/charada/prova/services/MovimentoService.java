@@ -46,8 +46,8 @@ public class MovimentoService {
                         new IllegalArgumentException("Usuário não encontrado"));
     }
 
-    public MovimentoDTO atualizarMovimento(Long id, MovimentoDTO movimentoDTO) {
-        if(Objects.isNull(repository.findById(id))) {
+    public MovimentoDTO atualizarMovimento( MovimentoDTO movimentoDTO) {
+        if(Objects.isNull(repository.findById(movimentoDTO.getId()))) {
             throw new IllegalArgumentException("Usuário não encontrado");
         }
         return movimentoDTO;
